@@ -8,7 +8,8 @@ const generate_image = async(req, res)=>{
     try{
         const data = {
             prompt: prompt,
-            n: number_images_generated
+            n: number_images_generated,
+            size: "512x512"
         };
         config = {
             headers:{
