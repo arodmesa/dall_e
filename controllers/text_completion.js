@@ -29,11 +29,11 @@ const request_edit= async (req, res)=>{
     //Creates a new edit for the provided input, instruction, and parameters
     // The instruction tells the model what to do with the text eg fix the spelling mistakes
     const url_API= 'https://api.openai.com/v1/edits';
-    const {input,temperature, instruction, number_of_results} = req.body;
+    const {prompt,temperature, instruction, number_of_results} = req.body;
     try{
         data = {
             model: "text-davinci-edit-001",
-            input: input,
+            input: prompt,
             temperature: temperature,
             n: number_of_results,
             instruction: instruction

@@ -5,7 +5,7 @@ require('dotenv').config();
 const text_moderation = async(req, res)=>{
     // Given a input text, outputs if the model classifies it as violating OpenAI's content policy.
     const url_API= 'https://api.openai.com/v1/moderations';
-    const {input} = req.body;
+    const {prompt} = req.body;
     try{
         const config ={
             headers:{
@@ -13,7 +13,7 @@ const text_moderation = async(req, res)=>{
                 "Authorization": `Bearer ${process.env.OPENAI_KEY}`
             }
         }
-        const response = await axios.post(url_API, {"input":input}, config);
+        const response = await axios.post(url_API, {"input":prompt}, config);
         res.status(200).send(response.data);        
     }catch(error){
         res.status(500).json({error_msg: 'Some error has occured here'});
