@@ -1,4 +1,5 @@
 const axios = require('axios');
+axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
 require('dotenv').config();
 
 const request_completion = async (req, res)=>{
