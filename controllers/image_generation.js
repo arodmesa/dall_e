@@ -1,5 +1,4 @@
 const axios = require('axios');
-axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
 require('dotenv').config();
 
 const generate_image = async(req, res)=>{
