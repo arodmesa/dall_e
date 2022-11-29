@@ -18,8 +18,10 @@ const generate_image = async(req, res)=>{
             }
         }
         const response = await axios.post(url_API, data, config);
+        res.set('Access-Control-Allow-Origin', '*'); 
         res.status(200).send(response.data);   
     }catch{
+        res.set('Access-Control-Allow-Origin', '*'); 
         res.status(500).json({error_msg: 'Some error has occured'});
     } 
 }
